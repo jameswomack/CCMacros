@@ -8,6 +8,8 @@
 
 #import <math.h>
 
+//////////BOOOOOOOOOOOOOOOOLEAN
+
 typedef BOOL boolean;
 typedef NSString String;
 
