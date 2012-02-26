@@ -38,6 +38,21 @@ typedef NSString String;
 
 #define RADIANS(__ANGLE__) ((__ANGLE__) / 180.0f * (float)M_PI)
 
+static dispatch_queue_t DispatchBG();
+static dispatch_queue_t DispatchBG()
+{
+    return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+}
+static dispatch_queue_t Dispatch();
+static dispatch_queue_t Dispatch()
+{
+    return dispatch_get_main_queue();
+}
+
+#define SCREENSIZE [UIScreen mainScreen].bounds.size
+
+#define NSStringFromBOOL(aBool) String(@"%@", aBool?@"YES":@"NO")
+
 #if __has_feature(objc_arc)
 #define Alert(tag, title, msg, button, buttons...) {UIAlertView *__alert = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:button otherButtonTitles:buttons];[__alert setTag:tag]; [__alert show];}
 #define AlertND(tag, title, msg, button, buttons...) {UIAlertView *__alert = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:button otherButtonTitles:buttons];[__alert setTag:tag]; [__alert show];}
